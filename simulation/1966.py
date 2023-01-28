@@ -30,3 +30,6 @@ for _ in range(t):
                 break
 
     print(result)
+
+# 참고 : https://assaeunji.github.io/python/2020-05-04-bj1966/
+# list pop 같은 내장함수 외우자 제발!!! 더 쉽게 풀수 있었잖아!!
