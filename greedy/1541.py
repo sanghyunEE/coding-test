@@ -1,31 +1,22 @@
+# eval 을 쓰는 문제가 아님
 s = input()
 
-number = []
-minus = s.split('-')
-for i in minus:
-    temp = i.split('+')
-    for j in temp:
-        number.append(j)
-# print(number)
-
-sign = []
-for i in s:
-    if i == '-' or i == '+':
-        sign.append(i)
-# print(sign)
-
-exp = number.copy()
-for i in range(len(sign)):
-    exp.insert(2*i+1, sign[i])
-# print(exp)
-# print(''.join(exp))
-
-result = 9999999
-for i in [0, 2, 4]:
-    for j in range(i+2, len(exp)+2, 2):
-        temp = exp.copy()
-        temp.insert(i, '(')
-        temp.insert(j, ')')
-        result = min(result, eval(''.join(temp)))
-
+array = s.split('-')
+result = 0
+if len(array) >= 2: # - 기호가 있다는 뜻
+    for i in range(len(array)):
+        for j in array[i].split('+'):
+            if i == 0:
+                result += int(j)
+            else:
+                result -= int(j)
+else: # - 기호가 없다는 뜻
+    temp = s.split('+')
+    for i in temp:
+        result += int(i)
 print(result)
+
+# https://pacific-ocean.tistory.com/228
+
+
+
