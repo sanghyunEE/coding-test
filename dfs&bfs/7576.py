@@ -6,10 +6,7 @@ array = []
 for _ in range(n):
     array.append(list(map(int, stdin.readline().split())))
 
-def bfs(x, y):
-    queue = deque()
-    queue.append((x, y))
-
+def bfs():
     while queue:
         x, y = queue.popleft()
         for dx, dy in zip([0, 0, -1, +1], [-1, +1, 0, 0]):
@@ -22,18 +19,13 @@ def bfs(x, y):
             elif array[nx][ny] == 0:
                 array[nx][ny] = array[x][y] + 1
                 queue.append((nx, ny))
-            else:
-                if array[nx][ny] > array[x][y] + 1:
-                    array[nx][ny] = array[x][y] + 1
-                    queue.append((nx, ny))
-                else:
-                    continue 
 
+queue = deque()
 for i in range(n):
     for j in range(m):
         if array[i][j] == 1:
-            bfs(i, j)
-
+            queue.append((i, j))
+bfs()
 flag = 0
 # if 0 이 하나라도 존재한다면 -1을 출력
 # 구글링 해보자 간단한 식 있지 않을까?

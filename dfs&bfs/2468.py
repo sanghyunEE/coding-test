@@ -19,7 +19,8 @@ def dfs(arr, x, y, t):
     dfs(arr, x, y+1, t)
     return True
 
-min_val = min(map(min, array))
+# min_val = min(map(min, array)) # 비가 안오는 경우도 구해야한다..
+min_val = 0
 max_val = max(map(max, array))
 
 current = -1
