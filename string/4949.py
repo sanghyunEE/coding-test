@@ -1,28 +1,34 @@
 from collections import deque
 
 while True:
+    flag = 0 # 0 yes / 1 no
     sentence = input().split('.')[0]
     if sentence == '': # 종료조건
         break
     if sentence == ' ':
         print('yes')
-        break
+        continue
+
     stack = []
-    queue = deque()
     for c in sentence:
-        temp = []
         if c == '(' or c == '[':
             stack.append(c)
-            temp.append(c)
         elif c == ')' or c == ']':
-            queue.append(c)
-            temp.append(c)
-    # print(stack, queue)
-    if temp[0] == ')' or temp[0] == ']':
-        print('no')
-        break
-    if len(stack) != len(queue):
-        print('no')
-        break
+            if len(stack) == 0:
+                flag = 1
+                break
+            elif c == ')' and stack[-1] == '(':
+                stack.pop(-1)
+            elif c == ']' and stack[-1] == '[':
+                stack.pop(-1)
+            else:
+                flag = 1
+                break
+        else:
+            continue
+    if flag == 1:
+        print('no')    
     else:
-        
+        print('yes')
+
+
