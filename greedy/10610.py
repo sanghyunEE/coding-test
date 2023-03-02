@@ -9,5 +9,3 @@ if sum % 3 != 0 or "0" not in n:
 
 else:
     print(''.join(n))
-
-print(sum)
