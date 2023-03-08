@@ -44,7 +44,7 @@ def go():
                     continue
                 if array[nx][ny] > size or array[nx][ny] == size:
                     continue
-                    
+                
 
         
 
