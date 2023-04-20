@@ -19,8 +19,8 @@ for i in range(1, n):
             decrease[i] = max(decrease[i], decrease[j] + 1)
 
 decrease.reverse()
-print(increase)
-print(decrease)
+# print(increase)
+# print(decrease)
 
 dp = [0] * n
 
